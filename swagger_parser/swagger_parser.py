@@ -636,7 +636,7 @@ class SwaggerParser(object):
         Returns:
             The definition name corresponding to the ref.
         """
-        p = re.compile('#\/definitions\/(.*)')
+        p = re.compile(r'#/definitions/(.*)')
         definition_name = re.sub(p, r'\1', ref)
         return definition_name
 
