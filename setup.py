@@ -6,6 +6,8 @@ try:
 except ImportError:
     from distutils.core import setup
 
+from swagger_parser import __version__
+
 
 def parse_requirements(filename):
     """ load requirements from a pip requirements file """
@@ -24,7 +26,7 @@ test_requirements = parse_requirements('requirements_dev.txt')
 
 setup(
     name='swagger_parser',
-    version='1.0.1',
+    version=__version__,
     description="Swagger parser giving useful informations about your swagger files",
     long_description=readme + '\n\n' + history,
     author="Cyprien Guillemot",
