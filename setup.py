@@ -6,7 +6,13 @@ try:
 except ImportError:
     from distutils.core import setup
 
-from swagger_parser import __version__
+# Circular dependency makes this fail.
+# from swagger_parser import __version__
+
+
+def set_version():
+    """ set module version """
+    return '1.0.1b1'
 
 
 def parse_requirements(filename):
@@ -26,7 +32,7 @@ test_requirements = parse_requirements('requirements_dev.txt')
 
 setup(
     name='swagger_parser',
-    version=__version__,
+    version=set_version(),
     description="Swagger parser giving useful informations about your swagger files",
     long_description=readme + '\n\n' + history,
     author="Cyprien Guillemot",
